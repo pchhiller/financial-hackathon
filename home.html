@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+		<meta name="viewport" content="width=device-width , initial-scale=1" >
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+   		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='jquery.fullPage.css') }}" />
+   	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='jquery.easings.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='smoothscroll.js') }}"></script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.fullPage.min.js') }}"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#fullpage').fullpage({
+                sectionsColor: ['#B266FF', '#4BBFC3', '#7BAABE', 'whitesmoke', '#ccddff'],
+                anchors: ['firstPage', 'secondPage', '3rdPage'],
+                menu: '#menu',
+                css3: true,
+                scrollingSpeed: 1000
+            });
+
+            $('#showExamples').click(function(e){
+                e.stopPropagation();
+                e.preventDefault();
+                $('#examplesList').toggle();
+            });
+
+            $('html').click(function(){
+                $('#examplesList').hide();
+            });
+        });
+    </script>
+
+</head>
+<body>
+
+	<div id="fullpage">
+	<a name="home">
+
+
+		<div style="position:absolute;top:0;padding-left:2%;left:0%;padding-right:2%;left:0%;font-size:250%; z-index:1;background:#FFFFFF;font-family:courier;border-radius:5px;color:#000000">FINe LINE</div>
+  		<div class="section" id="section0">
+
+			  <img class="img-responsive" src="{{ url_for('static', filename='logo.gif') }}" style="position:absolute; z-index:1; top:-5%	;left:37%;">			
+  			 <br><br><br><br><br><div class="flex-container"><a href="#firstPage" class="link" style="text-decoration:none;"><i class="glyphicon glyphicon-home"></i></a><a href="#secondPage" class="link" style="text-decoration:none;"><i class="glyphicon glyphicon-stats"></i></a><a href="#3rdPage" class="link" style="text-decoration:none;"><i class="glyphicon glyphicon-wrench" ></i></a></div>
+		
+<div class="row" style="position:absolute; top:70%;font-size:135%;">
+				
+				<div class="col-md-8 col-md-push-2"><center>
+					The bid and ask are the best potential prices that buyers and sellers are willing to transact at: the bid for the buying side, and the ask for the selling side. But, think of the bid and ask prices you see as "tip of the iceberg" prices. </center>
+				</div>
+				<br><br><br><br>
+				<div class="col-md-8 col-md-push-2"><center>
+					A transaction takes place when either a potential buyer is willing to pay the asking price, or a potential seller is willing to accept the bid price, or else they meet in the middle if both buyers and sellers change their orders.</center>
+				</div>
+			</div>
+
+		</div>
+		
+		
+ 		<div class="section " id="section1">
+ 			<img class="img-responsive" src="{{ url_for('static', filename='images.jpg') }}" style="position:absolute; z-index:1; top:50px;left:37%;">
+			<div class="row">
+				<div class="col-md-4 col-md-push-4"> 
+					<div class="stockDiv">	
+						<!--<button type="button" class="dropdown-toggle btn btn-success btn-block" data-toggle="dropdown" >List Of Stocks <span class="caret"></span></button>-->
+						
+						<form class="dropdown" action="{{ url_for('my_form_post') }}" method="post">
+							<select name="stock" class="dropdown-toggle btn btn-success btn-block" data-toggle="dropdown" onchange="this.form.submit()">	
+								<option value="none">Select one from below</option>
+								<option value="GOOG">Google</option>
+<option value="MSFT">Microsoft</option>
+<option value="YHOO">Yahoo</option>
+<option value="SSNLF">Samsung</option>
+<option value="INFY">Infosys</option>
+<option value="LDNXF">London Stock Exchange Group</option>
+<option value="VZ8.F">China Aviation Oil</option>
+<option value="TOM.HA">Toyota Motor</option>
+<option value="HSBA.L">HSBC Holdings</option>
+<option value="CTX.MU">Citrix Systems</option>
+<option value="KOA.BE">Konami HLDS</option>
+<option value="EML.AX">Emerchant Limited</option>
+<option value="EA">EA Sports</option>
+<option value="ATVI">Activision Blizzard Inc.</option>
+<option value="ADMS">Adamas Pharmaceuticals Inc.</option>
+<option value="NVDA">Nvidia Corp</option>
+<option value="AMD">Advanced Micro Devices Inc.</option>
+<option value="HPQ">HP Inc.</option>
+<option value="FB">Facebook</option>
+<option value="RYN.MX">Royal Bank of Canada</option>
+<option value="TSLA">Tesla Motors Inc.</option>
+<option value="PEP">Pepsico Inc.</option>
+<option value="KO">Coca-Cola Co.</option>
+<option value="MCD">MC Donald's Corp.</option>
+<option value="DPZ">Domino's Pizza Inc.</option>
+<option value="PZZA">Papa Johns Intl.</option>
+<option value="K">Kellog Company</option>
+<option value="GDOT">Green Dot Corp.</option>
+<option value="CSCO">Cisco Systems Inc.</option>
+<option value="NSU">Audi AG</option>
+<option value="AMZN">Amazon.com</option>
+<option value="IOC">Indian Oil Corp. Ltd.</option>
+							</select>
+							<noscript><input type="submit" value="submit"></noscript>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+ 		
+ 		
+ 		<div class="section " id="section2">
+
+ 				<div class="row" style="position:absolute;top:20%;left:40%;font-size:150%">
+ 					<div class="col-md-8 col-md-push-2">
+ 						<u><div>Contributors</div><br><br></u>
+ 						<div>Manan Pal Singh</div><br>
+ 						<div>Sahil Gupta</div><br>
+ 						<div>Rishab Gupta</div><br>
+ 						<div>Pulkit Chhiller</div>
+ 					</div>
+ 				</div>
+	        
+		</div>
+
+</div>
+
+</body>
+</html>
